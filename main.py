@@ -8,26 +8,12 @@ Delete
 """
 
 
-# a = {'id': 345, 'title': 'Платье', 'price': 2000, 'description': 'красивое платье', 'date of creation': '23.08.2022'}
-# print(a)
-# a['title'] = 'велосипед'
-# del a
-
 import shelve
 from datetime import datetime
 
 from settings import FILENAME
 
-"""
-db = {
-    '4567': {
-        'title': 'Apple Iphone 13',
-        'price': 98000,
-        'description': 'A very good phone',
-        'created_at': '23.08.2022 18:54'
-    }
-}
-"""
+
 
 def create_data():
     """
@@ -127,10 +113,8 @@ while True:
     6. update - изменить данные
     7. exit - выйти из программы
 
-    """))
-    operation = operation.lower().strip()
-    print(operation)
-# почему не работает  or operation == 'create'.strip().lower()
+    """)).lower().strip()
+
     with shelve.open(FILENAME) as db:
         if operation == '1' or operation == 'create':  
             create_data()
@@ -147,16 +131,6 @@ while True:
         elif operation == '7' or operation == 'exit':
             print('Всего доброго!')
             break
-        else: # почему не работает
+        else:
             print('Такой операции не существует. Проверьте правильность ввода.')
             continue
-
-
-
-
-# HW - create an interface
-# список доступных id
-
-# push to github
-
-# doc strings дописать, протестировать
